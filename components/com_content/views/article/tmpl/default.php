@@ -21,17 +21,18 @@ $user    = JFactory::getUser();
 JHtml::_('behavior.caption');
 
 ?>
-<div class="item-page<?php echo $this->pageclass_sfx?>">
+<section class="item-page<?php echo $this->pageclass_sfx?>">
 	<?php if ($this->params->get('show_page_heading', 1)) : ?>
-	<div class="page-header">
+	<header class="page-header">
 		<h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
-	</div>
+	</header>
 	<?php endif;
 if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item->paginationposition && $this->item->paginationrelative)
 {
 	echo $this->item->pagination;
 }
 	if ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
+<article class="item-page">	
 	<div class="btn-group pull-right"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="icon-cog"></i> <span class="caret"></span> </a>
 		<?php // Note the actions class is deprecated. Use dropdown-menu instead. ?>
 		<ul class="dropdown-menu actions">
@@ -52,8 +53,8 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 	</div>
 	<?php endif; ?>
 	<?php if (($params->get('show_title')) || ($params->get('show_author'))) : ?>
-	<div class="page-header">
-		<h2>
+	<header class="page-header">
+		<h1>
 			<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
 			<a href="<?php echo $this->item->readmore_link; ?>"> <?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
@@ -75,8 +76,8 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 				<?php endif; ?>
 				</small>
 				<?php endif; ?>
-		</h2>
-	</div>
+		</h1>
+	</header>
 	<?php endif; ?>
 
 	<?php if (isset ($this->item->toc)) :
@@ -151,6 +152,7 @@ endif;
 		<?php if ($useDefList) : ?>
 	</div>
 	<?php endif; ?>
+</article>	
 	<?php
 if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item->paginationposition AND!$this->item->paginationrelative):
 	echo '<hr />';
@@ -184,11 +186,12 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
 			echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 		endif; ?>
 		</a> </p>
-	<?php endif; ?>
+	<?php endif; ?>	
 	<?php endif; ?>
 	<?php
 if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item->paginationposition AND $this->item->paginationrelative):
 	echo $this->item->pagination;
 ?>
 	<?php endif; ?>
-	<?php echo $this->item->event->afterDisplayContent; ?> </div>
+	<?php echo $this->item->event->afterDisplayContent; ?> 
+</section>
