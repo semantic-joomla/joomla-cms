@@ -64,7 +64,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 	</header>
 		<footer class="article-info">	
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-				<small class="createdby">
+				<div class="createdby">
 				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
 				<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
 				<?php
@@ -77,8 +77,8 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 				<?php else: ?>
 				<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
 				<?php endif; ?>
-				</small>
-				<?php endif; ?>
+				</div>
+			<?php endif; ?>
 		</footer>
 	<?php endif; ?>
 	<?php if (isset ($this->item->toc)) :
