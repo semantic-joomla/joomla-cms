@@ -53,13 +53,15 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 	</div>
 	<?php endif; ?>
 	<?php if (($params->get('show_title')) || ($params->get('show_author'))) : ?>
-	<header>
+	<header class="page-header">
 		<h1>
 			<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
 			<a href="<?php echo $this->item->readmore_link; ?>"> <?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 			<?php echo $this->escape($this->item->title); ?>
 			<?php endif; ?>
+		</h1>
+		<section class="article-info"	
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 				<small class="createdby">
 				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
@@ -76,7 +78,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 				<?php endif; ?>
 				</small>
 				<?php endif; ?>
-		</h1>
+		</section>
 	</header>
 	<?php endif; ?>
 
