@@ -5,6 +5,7 @@ The master branch is not to be changed, with only upstream changes from the Joom
 To do your part please follow: 
 
 $ git checkout master
+$ git remote add upstream https://github.com/joomla/joomla-cms.git
 $ git fetch upstream
 $ git merge upstream/master
 $ git push
